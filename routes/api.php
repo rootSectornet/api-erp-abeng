@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('positions', PositionController::class);
 Route::apiResource('products', ProductController::class);
+Route::apiResource('materials', MaterialController::class);
+Route::get('search/materials', [MaterialController::class, 'search']);
 
