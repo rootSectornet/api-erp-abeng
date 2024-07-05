@@ -14,7 +14,11 @@ class Projects extends Controller
      */
     public function create(Request $request)
     {
+        //validations
+        $validated = $request->validate([
+            'product_id' => 'required|exists:products,id',
+        ]);
 
-        return response()->json(null);
+        return response()->json($validated);
     }
 }
