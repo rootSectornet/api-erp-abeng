@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Product extends Model
 {
     use HasFactory;
-    use HasFactory;
     protected $table = "products";
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_dt';
@@ -24,5 +23,12 @@ class Product extends Model
     public function category() : BelongsTo
     {
         return $this->belongsTo(CategoryProduct::class,"id_category");
+    }
+    /**
+    * Get the steps for the product.
+    */
+    public function steps()
+    {
+        return $this->hasMany(ProductStep::class);
     }
 }

@@ -14,5 +14,9 @@ class Position extends Model
     protected $fillable = [
         'name',
         'is_active',
-    ];
+    ];    
+    public function salarys()
+    {
+        return $this->hasMany(Salary::class);
+    }
 }
