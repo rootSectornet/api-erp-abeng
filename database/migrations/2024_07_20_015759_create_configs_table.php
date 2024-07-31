@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('costumers', function (Blueprint $table) {
-            $table->id();
-            $table->string("name");
-            $table->string("email");
-            $table->text("address");
-            $table->string("phone",16);
-            $table->foreignId('city_id')->constrained('citys')->onDelete('cascade')->onUpdate('no action');
+        Schema::create('configs', function (Blueprint $table) {
+            $table->string('key')->primary();
+            $table->text('value');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('costumers');
+        Schema::dropIfExists('configs');
     }
 };

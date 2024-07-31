@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('ProjectStepId');
             $table->unsignedBigInteger('positionId');
-            $table->integer('total');
             $table->string('salary', 16);
             $table->timestamps();
             $table->foreign('ProjectStepId')->references('id')->on('project_steps')->onDelete('cascade')->onUpdate('no action');

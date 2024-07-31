@@ -10,7 +10,7 @@ class ProjectWorker extends Model
     use HasFactory;
     protected $table = "project_workers";
     const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_dt';
+    const UPDATED_AT = 'updated_at';
     /**
      * The attributes that are mass assignable.
      *
@@ -19,11 +19,7 @@ class ProjectWorker extends Model
     protected $fillable = [
         'ProjectStepId',
         'positionId',
-        'total',
-        'salary',
-        'dateStart',
-        'dateEnd',
-        'projectNo',
+        'salary'
     ];
 
     /**

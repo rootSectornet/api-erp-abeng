@@ -21,9 +21,8 @@ return new class extends Migration
             $table->string('transport_cost',16);
             $table->enum('type', ['OFFERING', 'SURVEY','NEGOSIATION','ACTIVE_PROJECT','DONE_PROJECT','CANCEL']);
             $table->boolean('is_active')->default(true);
-            $table->text('reason');
+            $table->text('reason')->nullable();
             $table->timestamp('survey_date')->useCurrent()->nullable();
-            $table->timestamp('due_date')->useCurrent()->nullable();
             $table->timestamps();
         });
     }
