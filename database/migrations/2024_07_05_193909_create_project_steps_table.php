@@ -19,8 +19,7 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->integer('rank');
             $table->enum('status', ['DONE', 'PENDING', 'RUNNING', 'STOP', 'SKIPPED', 'ON-HOLD']);
-            $table->timestamp('dateStart')->nullable();
-            $table->timestamp('dateEnd')->nullable();
+            $table->integer('duration');
             $table->string('projectNo', 24);
             $table->timestamps();
             $table->foreign('projectNo')->references('projectNo')->on('projects')->onDelete('cascade')->onUpdate('no action');

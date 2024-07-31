@@ -10,7 +10,7 @@ class ProjectStep extends Model
     use HasFactory;
     protected $table = "project_steps";
     const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_dt';
+    const UPDATED_AT = 'updated_at';
     /**
      * The attributes that are mass assignable.
      *
@@ -21,8 +21,7 @@ class ProjectStep extends Model
         'notes',
         'rank',
         'status',
-        'dateStart',
-        'dateEnd',
+        'duration',
         'projectNo',
     ];
 

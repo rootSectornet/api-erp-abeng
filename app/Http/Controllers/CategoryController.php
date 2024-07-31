@@ -8,7 +8,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return CategoryProduct::all();
+        return CategoryProduct::withCount('products')->get();
     }
 
     public function store(Request $request)

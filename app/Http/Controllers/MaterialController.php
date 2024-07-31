@@ -11,6 +11,7 @@ class MaterialController extends Controller
         return Material::all();
     }
 
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -58,7 +59,6 @@ class MaterialController extends Controller
 
     public function search(Request $request)
     {
-        echo "ada";
         $searchTerm = $request->input('name');
 
         $materials = Material::where('name', 'like', "%$searchTerm%")->get();

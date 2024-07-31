@@ -8,7 +8,11 @@ class PositionController extends Controller
 {
     public function index()
     {
-        return Position::all();
+        return Position::join('salarys', 'salarys.position_id', '=', 'positions.id')
+                    ->select('positions.id', 'positions.name', 'positions.is_active', 'salarys.type', 'salarys.salary')
+                    ->orderBy('salarys.salary')
+                    ->get();
+
     }
 
     public function store(Request $request)

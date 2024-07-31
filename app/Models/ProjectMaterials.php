@@ -10,7 +10,7 @@ class ProjectMaterials extends Model
     use HasFactory;
     protected $table = "project_materials";
     const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_dt';
+    const UPDATED_AT = 'updated_at';
     /**
      * The attributes that are mass assignable.
      *
