@@ -99,7 +99,7 @@ class ProjectController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
 
-        return response()->json($validated);
+        return response()->json($validatedData);
     }
 
     private function generateProjectNo()
@@ -214,6 +214,27 @@ class ProjectController extends Controller
     public function getLabaPerhari(){
         $config = Config::where('key',KEY_LABA)->first();
         return response()->json($config);
+    }
+    public function show($id)
+    {
+        // Gunakan with() untuk memuat relasi customer
+        $project = Projects::with('customer', 'product','materialNames')->find($id);
+
+        if ($project) {
+            return response()->json([
+                'code' => 200,
+                'message' => 'OK',
+                'data' => $project
+            ], 200);
+        } else {
+            return response()->json([
+                'code' => 404,
+                'message' => 'Not Found',
+                'data' => [
+                    'message' => 'Project not found'
+                ]
+            ], 404);
+        }
     }
 
 }

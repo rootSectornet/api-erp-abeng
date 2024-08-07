@@ -37,6 +37,7 @@ Route::resource('product-steps', ProductStepController::class);
 Route::resource('salarys', SalaryController::class);
 Route::post('projects', [ProjectController::class, 'create']);
 Route::get('projects', [ProjectController::class, 'getListByStatus']);
+Route::get('/projects/{id}', [ProjectController::class, 'show']);
 Route::get('config/laba', [ProjectController::class, 'getLabaPerhari']);
 
 
