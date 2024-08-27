@@ -11,11 +11,7 @@ class ProjectMaterials extends Model
     protected $table = "project_materials";
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
     protected $fillable = [
         'projectNo',
         'materialId',
@@ -26,11 +22,13 @@ class ProjectMaterials extends Model
         'remainingQty',
     ];
 
-    /**
-     * Get the product that owns the step.
-     */
     public function project()
     {
-        return $this->belongsTo(Projects::class);
+        return $this->belongsTo(Projects::class, 'projectNo', 'projectNo');
+    }
+
+    public function material()
+    {
+        return $this->belongsTo(Material::class, 'materialId');
     }
 }
